@@ -47,7 +47,7 @@ pip install ultralytics opencv-python numpy tensorflow scipy scikit-learn
 
 Four things are needed that are not in the repo:
 
-1. **Deep SORT source code in `deep_sort/`.** The folder is recorded as a git submodule but has no `.gitmodules` entry, so it is empty after cloning. The imports (`deep_sort.deep_sort.tracker`, `deep_sort.tools.generate_detections`) match the layout of the original Deep SORT repository: `git clone https://github.com/nwojke/deep_sort.git deep_sort`.
+1. **Deep SORT source code in `deep_sort/`.** It is a git submodule (nwojke/deep_sort), so clone with `git clone --recurse-submodules`, or run `git submodule update --init` after cloning.
 2. **`models/mars-small128.pb`**, the appearance model published with Deep SORT.
 3. **`models/yolov8s.pt`**, the Ultralytics YOLOv8s weights.
 4. **A video** at the path set by `source` in `config/config.ini` (default `AOD.mp4`).
@@ -62,7 +62,7 @@ python bag_detect.py   # press q in the window to stop
 bag_detect.py       main loop: detection, tracking, owner check, drawing
 tracker.py          Deep SORT wrapper (one instance for people, one for bags)
 config/config.ini   video source and display settings
-deep_sort/          empty submodule pointer; Deep SORT code goes here
+deep_sort/          Deep SORT submodule (nwojke/deep_sort)
 img.png             example output frame
 LICENSE             Apache License 2.0
 ```
